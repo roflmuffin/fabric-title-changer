@@ -12,8 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Configuration {
 
@@ -64,8 +63,9 @@ public class Configuration {
         }
     }
 
-    private HashMap<Field, Config> getConfigFields() {
-        final HashMap<Field, Config> fieldMap = new HashMap<>();
+    private ArrayList<AbstractMap.SimpleEntry<Field,Config>> getConfigFields() {
+
+        final ArrayList<AbstractMap.SimpleEntry<Field,Config>> fieldMap = new ArrayList<>();
         for (Field field : clazz.getDeclaredFields()) {
             if (!field.isAnnotationPresent(Config.class)) {
                 continue;
@@ -74,16 +74,16 @@ public class Configuration {
                 throw new UnsupportedOperationException("Config field must be static");
             }
             Config annotation = field.getAnnotation(Config.class);
-            fieldMap.put(field, annotation);
+            fieldMap.add(new AbstractMap.SimpleEntry<>(field, annotation));
         }
         return fieldMap;
     }
 
     public HashMap<String, JsonObject> toJson() {
-        final HashMap<Field, Config> fieldMap = getConfigFields();
+        final ArrayList<AbstractMap.SimpleEntry<Field,Config>> fieldMap = getConfigFields();
         final HashMap<String, JsonObject> configs = new HashMap<>();
 
-        for (Map.Entry<Field, Config> entry : fieldMap.entrySet()) {
+        for (Map.Entry<Field, Config> entry : fieldMap) {
             Field field = entry.getKey();
             Config annotation = entry.getValue();
 
@@ -122,9 +122,9 @@ public class Configuration {
     }
 
     public void readFromJson(HashMap<String, JsonObject> configs) {
-        final HashMap<Field, Config> fieldMap = getConfigFields();
+        final ArrayList<AbstractMap.SimpleEntry<Field,Config>> fieldMap = getConfigFields();
 
-        for (Map.Entry<Field, Config> entry : fieldMap.entrySet()) {
+        for (Map.Entry<Field, Config> entry : fieldMap) {
             Field field = entry.getKey();
             Config annotation = entry.getValue();
 
@@ -160,5 +160,4 @@ public class Configuration {
             }
         }
     }
-
 }

@@ -31,10 +31,9 @@ public @interface Config {
     String comment() default "";
 
     /**
-     * this is the config file name, the default is just config.cgf, use this is you whish to split the config into more than one file.
+     * this is the config file name, the default is just config.json, use this is you wish to split the config into more than one file.
      *
      * @return
      */
     String config() default "config";
-
 }
