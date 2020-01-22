@@ -2,8 +2,6 @@
   "required": true,
   "package": "in.roflmuff.ftc.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [
-  ],
   "client": [
     "MinecraftClientMixin"
   ],
