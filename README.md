@@ -1,6 +1,6 @@
 # Fabric Title Changer
 
-A simple mod that allows you to customize the text that appears in the title window of Minecraft.
+A simple Fabric mod that allows you to customize the text that appears in the title window of Minecraft.
 
 ## Configuration
 There are 5 options which can be modified by editing the configuration .json file found in `<minecraft directory>/config/fabric-title-changer/settings.json`.
