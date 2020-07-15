@@ -10,9 +10,6 @@ pipeline {
       }
 
       stage ('Build') {
-         when {
-                branch 'master'
-         }
          steps {
             sh "./gradlew clean build publish --stacktrace"
 
