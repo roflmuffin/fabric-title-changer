@@ -11,6 +11,10 @@ There are 5 options which can be modified by editing the configuration .json fil
 - `overrideMinecraftTitle`: Set a `value` property on this field to change the "Minecraft" text shown in the titlebar to anything else.
 - `overrideFullTitle`: This will ignore all other settings and force the window to always have the specified title.
 
+When using the `overrideFullTitle` option, you can also include the following variables which will get replaced with their corresponding data when the game is run. Send me a message if you want any extra variables added to a future version.
+
+- %username% | The username of the currently logged in user
+
 ## Default Configuration
 ```json
 {
