@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Configuration {
@@ -28,7 +29,7 @@ public class Configuration {
     }
 
     private void setup() {
-        final File configDir = new File(FabricLoader.getInstance().getConfigDirectory(), modId);
+        final File configDir = FabricLoader.getInstance().getConfigDir().resolve(modId).toFile();
 
         if (!configDir.exists()) {
             configDir.mkdirs();

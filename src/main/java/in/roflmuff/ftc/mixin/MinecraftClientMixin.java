@@ -19,7 +19,13 @@ public class MinecraftClientMixin {
 		MinecraftClient client = (MinecraftClient)(Object)this;
 
 		if (FabricTitleChangerConfig.overrideFullTitle != null) {
-			info.setReturnValue(FabricTitleChangerConfig.overrideFullTitle);
+
+			String returnVal = FabricTitleChangerConfig.overrideFullTitle;
+			if (client.getSession() != null) {
+				returnVal = returnVal.replaceAll("%username%", client.getSession().getUsername());
+			}
+
+			info.setReturnValue(returnVal);
 			return;
 		}
 
