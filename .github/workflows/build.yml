@@ -23,6 +23,11 @@ jobs:
           java-version: 17
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
+      - name: Use gradle cache for faster builds
+        uses: actions/cache@v1
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
       - name: build
         run: ./gradlew build publish
         env:
