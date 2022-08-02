@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "ftc",
   "version": "${version}",
-
   "name": "Fabric Title Changer",
   "description": "A simple mod to configure the Minecraft window title.",
   "authors": [
