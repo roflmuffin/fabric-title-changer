@@ -8,8 +8,11 @@ on: [pull_request, push]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
+      - id: var
+        name: Setup variables
+        run: echo ::set-output name=commit_hash::${GITHUB_SHA:0:7}
       - name: checkout repository
         uses: actions/checkout@v2
       - name: validate gradle wrapper
