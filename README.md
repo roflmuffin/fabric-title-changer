@@ -1,4 +1,7 @@
-# Fabric Title Changer
+# Fabric Title Changer [![](http://cf.way2muchnoise.eu/359534.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-title-changer) [![](https://modrinth-utils.vercel.app/api/badge/downloads?id=M9i6zRjB&logo=true)](https://modrinth.com/mod/fabric-title-changer)
+
+
+
 
 A simple Fabric mod that allows you to customize the text that appears in the title window of Minecraft.
 
