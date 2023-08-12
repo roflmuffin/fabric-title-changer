@@ -95,7 +95,7 @@ if (System.getenv("CURSEFORGE_API_KEY") && !version.endsWith("-SNAPSHOT")) {
             changelogType = "markdown"
             delegate.changelog = changelog
 
-            addGameVersion "1.19.4"
+            addGameVersion "1.20.1"
             addGameVersion "Fabric"
             addGameVersion "Java 17"
 
@@ -124,7 +124,7 @@ if (System.getenv("MODRINTH_API_KEY") && !version.endsWith("-SNAPSHOT")) {
         delegate.changelog = changelog
         versionType = releaseChannel.toUpperCase()
         uploadFile = remapJar
-        gameVersions = ["1.19.4"]
+        gameVersions = ["1.20.1"]
         loaders = ["fabric"]
         dependencies {
             required.project "fabric-api"
